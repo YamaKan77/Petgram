@@ -1,0 +1,9 @@
+<div class="text-center">
+	<%= image_tag @pic.image(:medium) %>
+</div>
+<%= render 'form' %>
+<div class="text-center">
+  <%= link_to "Delete", pic_path(@pic), method: :delete %> |
+	<%= link_to "Return", pic_path(@pic) %>
+</div>
+	
