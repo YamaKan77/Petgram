@@ -1,17 +1,5 @@
 <div class="posts-wrapper row">
 	<% @pics.each do |p| %>
-		<div class="post">
-			<div class="post-head">
-				<div class="name">
-					Kan Yamamoto
-				</div>
-			</div>
-				<div class="image" class="center-block">
-					<%= link_to (image_tag p.image(:medium), class: 'img-responsive'), pic_path(p) %><br>
-					<p class="caption">
-						<%= p.caption %>
-					</p>
-				</div>
-		</div>
+		<%= render 'pic', p: p %>
 	<% end %>
 </div>

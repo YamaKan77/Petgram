@@ -1,15 +1,19 @@
 class PicsController < ApplicationController
-	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	before_action :set_pic, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
+	before_action :owned_pic, only: [:edit, :update, :destroy]
+
 	def index
 		@pics = Pic.all
 	end
 
 	def new
-		@pic = Pic.new
+		@pic = current_user.pics.build
 	end
 
 	def create
-		if @pic = Pic.create(pic_params)
+		@pic = current_user.pics.build(pic_params)
+		if @pic.save
 			flash[:success] = "Your post has been created!"
 			redirect_to pics_path
 		else
@@ -48,8 +52,15 @@ check the form."
 		params.require(:pic).permit(:image, :caption)
 	end
 
-	def set_post
+	def set_pic
 		@pic = Pic.find(params[:id])
+	end
+
+	def owned_pic
+		unless current_user == @pic.user
+			flash[:alert] = "That pic doesn't belong to you"
+			redirect_to root_path
+		end
 	end
 
 end

@@ -1,19 +1,11 @@
-<div class="posts-wrapper row">
-	<div class="post">
-		<div class="post-head">
-			<div class="name">
-				Kan Yamamoto
-			</div>
-		</div>
-			<div class="image center-block">
-				<%= image_tag @pic.image.url(:medium) %>
-			</div>
-			<p class="caption">
-				<%= @pic.caption %>
-			</p>
-			<div class="text-center">
-				<%= link_to "Edit Pic", edit_pic_path(@pic) %> |
-				<%= link_to "Return", pics_path %><br>
-			</div>
+<%= render 'pic', p: @pic %>
+<% if @pic.user.id == current_user.id %>
+	<div class="text-center edit-links">
+		<%= link_to "Edit Pic", edit_pic_path(@pic) %> |
+		<%= link_to "Return", pics_path %><br>
 	</div>
-</div>
+<% else %>
+	<div class="text-center edit-links">
+		<%= link_to "Return", pics_path %><br>
+	</div>
+<% end %>
