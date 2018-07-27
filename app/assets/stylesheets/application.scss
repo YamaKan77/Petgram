@@ -141,3 +141,50 @@ sans-serif;
   margin-top: 20px;
   margin-bottom: 40px;
 }
+
+html {
+  height: 100%;
+}
+
+.registration-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: url('pets.jpeg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: contain;
+}
+
+.login-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: url('login.jpeg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: auto;
+}
+
+.log-in{
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  border: none;
+}
+
+.panel {
+  border-radius: 8px;
+}
+
+.panel-heading{
+  h1 {
+    text-align: center;
+  }
+}
+.navbar {
+  margin-bottom: 0px;
+}
+.alert {
+  margin-bottom: 0px;
+}
